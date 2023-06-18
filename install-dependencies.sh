@@ -13,9 +13,8 @@ if [[ -d inc/eigen3 ]]
 then
     echo "Eigen3 already installed"
 else
-    rm -r inc/eigen3
     rm -r /tmp/eigen3
     mkdir -p /tmp/eigen3
     wget -c https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz -O - | tar -xz -C /tmp/eigen3
-    mv /tmp/eigen3/eigen-3.4.0/ inc/Eigen3
+    mv /tmp/eigen3/eigen-3.4.0/ inc/eigen3
 fi

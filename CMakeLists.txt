@@ -12,6 +12,7 @@ file(GLOB SOURCES "src/*.cpp" "src/CBS/*.cpp" "src/PIBT/*.cpp")
 add_executable(lns ${SOURCES})
 
 # Find Boost
+set(Boost_USE_STATIC_LIBS   ON)
 find_package(Boost REQUIRED COMPONENTS program_options system filesystem)
 
 # Find Eigen3 for PIBT
