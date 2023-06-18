@@ -9,3 +9,5 @@ CMakeCache.txt
 lns
 Makefile
 CMakeFiles/*
+inc/Eigen3/*
+
