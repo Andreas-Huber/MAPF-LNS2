@@ -13,6 +13,11 @@ file(GLOB SOURCES "src/*.cpp" "src/CBS/*.cpp" "src/PIBT/*.cpp")
 add_executable(lns ${SOURCES})
 
 # Find Boost
+set(Boost_ROOT /boost) 
+set(Boost_INCLUDE_DIR /boost/include)
+set(Boost_INCLUDE_DIRS /boost/include)
+include_directories( ${Boost_INCLUDE_DIRS} )
+
 set(Boost_USE_STATIC_LIBS   ON)
 find_package(Boost REQUIRED COMPONENTS program_options system filesystem)
 
@@ -20,5 +25,4 @@ find_package(Boost REQUIRED COMPONENTS program_options system filesystem)
 #find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 
-include_directories( ${Boost_INCLUDE_DIRS} )
 target_link_libraries(lns ${Boost_LIBRARIES})
