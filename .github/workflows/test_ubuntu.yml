@@ -21,7 +21,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: build with docker
-      run: docker build -t mapflns2
+      run: docker build -t mapflns2 .
       
     - uses: shrink/actions-docker-extract@v2
       name: extract
