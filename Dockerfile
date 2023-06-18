@@ -23,12 +23,14 @@ RUN apt install cmake  -y
 
 WORKDIR /src
 COPY ./install-dependencies.sh install-dependencies.sh
+RUN chomod +x install-dependencies.sh
 RUN ./install-dependencies.sh
 ENV BOOST_ROOT=/boost
 RUN export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATHs
 
 
 COPY . .
+RUN chomd +x build.sh
 RUN ls -la /src/*
 
 RUN cat /boost/include/boost/version.hpp
