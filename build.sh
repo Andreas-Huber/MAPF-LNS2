@@ -1,0 +1,5 @@
+export BOOST_ROOT=/tmp/boost
+export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
+
+cmake -DCMAKE_BUILD_TYPE=RELEASE .
+make

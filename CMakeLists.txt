@@ -15,8 +15,8 @@ add_executable(lns ${SOURCES})
 find_package(Boost REQUIRED COMPONENTS program_options system filesystem)
 
 # Find Eigen3 for PIBT
-find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+#find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 
 include_directories( ${Boost_INCLUDE_DIRS} )
-target_link_libraries(lns ${Boost_LIBRARIES} Eigen3::Eigen)
+target_link_libraries(lns ${Boost_LIBRARIES})

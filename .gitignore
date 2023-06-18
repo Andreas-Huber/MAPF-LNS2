@@ -4,3 +4,8 @@ bin
 cmake*
 exp*
 debug
+inc/eigen3
+CMakeCache.txt
+lns
+Makefile
+CMakeFiles/*
