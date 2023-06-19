@@ -19,8 +19,7 @@ RUN apt install cmake  -y
 #RUN make
 #RUN make install
 
-
-
+# Install dependencies (boost eigen3)
 WORKDIR /src
 COPY ./install-dependencies.sh install-dependencies.sh
 RUN chmod +x install-dependencies.sh
@@ -28,16 +27,19 @@ RUN ./install-dependencies.sh
 ENV BOOST_ROOT=/boost
 RUN export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATHs
 
-
+# Copy all files and make them executable
 COPY . .
 RUN chmod +x build.sh
 RUN ls -la /src/*
-
+# Check dependencies are there
 RUN cat /boost/include/boost/version.hpp
 RUN cat /src/inc/eigen3/Eigen/Core
+
+# Compile the project
 RUN ./build.sh
 
-
+# Copy files to a new container to test them in a clean ubuntu 18.04 container
+# This is to check, we can run the assebly without any dependencies
 FROM ubuntu:18.04 as test
 WORKDIR /app
 COPY --from=build /src/lns lns
